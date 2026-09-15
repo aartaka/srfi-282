@@ -26,10 +26,10 @@ The editor will add this section.</p>
 <h2 id="abstract">Abstract</h2>
 
 <p>
-  Types and entities deserve predicates, so that their user can meaningfully understand what they are dealing with.
-  And usefully dispatch on them in their code.
-  However, some R<sup>7</sup>RS “types” have no respective predicates.
-  This SRFI defines them.
+  Types and entities deserve predicates so that their user can
+  meaningfully understand what they are dealing with, and usefully
+  dispatch on them in their code.  However, some R<sup>7</sup>RS
+  “types” have no respective predicates.  This SRFI defines them.
 </p>
 
 <h2 id="issues">Issues</h2>
@@ -40,16 +40,16 @@ will not appear in the final SRFI.</p>
 <h2 id="rationale">Rationale</h2>
 
 <p>
-  The discussion of types in Scheme is often predicate-reliant.
-  Including in <a href="https://standards.scheme.org/r7rs-html5/index.html#3.2">in R<sup>7</sup> “Disjointness of types” section</a>.
+  The discussion of types in Scheme is often predicate-reliant,
+  including in the <a href="https://standards.scheme.org/r7rs-html5/index.html#3.2">in R<sup>7</sup> “Disjointness of types” section</a>.
   Types are reliably represented by these predicates.
-  (This is in part why <a href="https://srfi.schemers.org/srfi-253/srfi-253.html">author’s own SRFIs</a> rely on predicates for typing.)
+  (This is, in part, why the <a href="https://srfi.schemers.org/srfi-253/srfi-253.html">author’s own SRFIs</a> rely on predicates for typing.)
   The predicate set essentially defines what types of object semantically “exist.”
-  If there’s no predicate—there is no (programmatically-reachable) type.
+  If there’s no predicate, there is no (programmatically-reachable) type.
 </p>
 
 <p>
-  Thus the need for more predicates than what R<sup>7</sup>RS Small provides.
+  Thus more predicates are needed than R<sup>7</sup>RS Small provides.
   There are types that do actually exist, but have no predicates proving their existence.
   Some implementations provide these predicates, but there’s no portable way to use them.
   Thus this SRFI: to have a common ground set of predicates for entities that otherwise exist in Scheme.
@@ -65,15 +65,15 @@ will not appear in the final SRFI.</p>
 
 <p>
   This predicate returns true whenever given
-  a <a href="https://standards.scheme.org/r7rs-html5/index.html#5.6">library</a> <var>object</var>.
-  And false otherwise.
+  a <a href="https://standards.scheme.org/r7rs-html5/index.html#5.6">library</a> <var>object</var>,
+  and false otherwise.
 </p>
 
 <p>
   While libraries are part of the “meta-language” of Scheme, they are semantic entities.
-  And they might as well be represented in the run-time.
-  As modules present in many implementations, or otherwise.
-  So there’s a need for a predicate checking for them.
+  They might as well be represented in the run-time.
+  Modules are present in many implementations, or otherwise,
+  so there’s a need for a predicate checking for them.
 </p>
 
 <h2 id="spec--environment">(srfi 282) procedure (environment? object) → boolean</h2>
@@ -81,8 +81,8 @@ will not appear in the final SRFI.</p>
 <p>
   Returns true whenever given an environment <var>object</var>, as returned by
   <a href="https://standards.scheme.org/r7rs-html5/index.html#environment">environment</a>
-  and <a href="https://standards.scheme.org/r7rs-html5/index.html#6.12">the like</a>.
-  And false otherwise.
+  and <a href="https://standards.scheme.org/r7rs-html5/index.html#6.12">the
+  like</a>, and false otherwise.
 </p>
 
 <p>
@@ -94,8 +94,8 @@ will not appear in the final SRFI.</p>
 <h2 id="spec--parameter">(srfi 282) procedure (parameter? object) → boolean</h2>
 
 <p>
-  Returns true whenever <var>object</var> is a parameter object.
-  And false otherwise.
+  Returns true whenever <var>object</var> is a parameter object, and
+  false otherwise.
 </p>
 
 <p>
@@ -113,10 +113,10 @@ will not appear in the final SRFI.</p>
 </p>
 
 <p>
-  While, again, these objects are not necessarily representable in all implementations.
-  (Being essentially part of the Scheme meta-language.)
-  Some implementations do represent them as “macro” and “syntax” object reachable programmatically.
-  Predicate necessary.
+  While, again, these objects are not necessarily representable in all implementations,
+  being essentially part of the Scheme meta-language
+  some implementations do represent them as “macro” and “syntax” objects reachable programmatically, so a
+  predicate is necessary.
 </p>
 
 <h2 id="spec--no">Not Included</h2>
