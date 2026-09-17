@@ -62,21 +62,6 @@ will not appear in the final SRFI.</p>
   There are only four exported procedures in this SRFI.
 </p>
 
-<h2 id="spec--library">(srfi 282) procedure (library? object) → boolean</h2>
-
-<p>
-  This predicate returns true whenever given
-  a <a href="https://standards.scheme.org/r7rs-html5/index.html#5.6">library</a> <var>object</var>,
-  and false otherwise.
-</p>
-
-<p>
-  While libraries are part of the “meta-language” of Scheme, they are semantic entities.
-  They might as well be represented in the run-time.
-  Modules are present in many implementations, or otherwise,
-  so there’s a need for a predicate checking for them.
-</p>
-
 <h2 id="spec--environment">(srfi 282) procedure (environment? object) → boolean</h2>
 
 <p>
@@ -105,28 +90,33 @@ will not appear in the final SRFI.</p>
   Thus the need for a predicate.
 </p>
 
-<h2 id="spec--syntax">(srfi 282) procedure (syntax-transformer? object) → boolean</h2>
+<h2 id="spec--continuation">(srfi 282) procedure (continuation? object) → boolean</h2>
 
 <p>
-  Returns true whenever <var>object</var> is a syntax transformer,
-  like the ones returned by <a href="https://standards.scheme.org/r7rs-html5/index.html#syntax-rules">syntax-rules</a>.
-  Returns false otherwise.
+  Returns true whenever <var>object</var> is a continuation (such as created by <code>call/cc</code>,)
+  false otherwise.
 </p>
 
 <p>
-  While, again, these objects are not necessarily representable in all implementations,
-  being essentially part of the Scheme meta-language
-  some implementations do represent them as “macro” and “syntax” objects reachable programmatically, so a
-  predicate is necessary.
+  While parameters are almost invariably represented as procedures,
+  they might happen to be distinct callable objects.
+  Thus the need for a predicate.
 </p>
 
 <h2 id="spec--no">Not Included</h2>
 
-<code>record?</code> and <code>record-type?</code>.
-While records and their types are also part of the standard type repertoire,
-they have respective SRFIs,
-like <a href="https://srfi.schemers.org/srfi-237/srfi-237.html#inspection-layer">SRFI-237</a>
-and <a href="https://srfi.schemers.org/srfi-76/srfi-76.html#:~:text=%28c%20%28make%2Dwidget%20n%29%29%29%29%29-,Reflection,-A%20set%20of">SRFI-76</a>.
+<p>
+  <code>record?</code> and <code>record-type?</code>.
+  While records and their types are also part of the standard type repertoire,
+  they have respective SRFIs,
+  like <a href="https://srfi.schemers.org/srfi-237/srfi-237.html#inspection-layer">SRFI-237</a>
+  and <a href="https://srfi.schemers.org/srfi-76/srfi-76.html#:~:text=%28c%20%28make%2Dwidget%20n%29%29%29%29%29-,Reflection,-A%20set%20of">SRFI-76</a>.
+</p>
+
+<p>
+  Earlier versions of this SRFI contained <code>library?</code> and <code>syntax-transformer?</code> predicates,
+  but these were removed as too meta and impossible to obtain in standard code.
+</p>
 
 <h2 id="implementation">Implementation</h2>
 
@@ -139,10 +129,9 @@ and <a href="https://srfi.schemers.org/srfi-76/srfi-76.html#:~:text=%28c%20%28ma
 </p>
 
 <pre>
-(define (library? object) #f)
 (define (environment? object) #f)
 (define (parameter? object) #f)
-(define (syntax-transformer? object) #f)
+(define (continuation? object) #f)
 </pre>
 
 <h2 id="acknowledgements">Acknowledgements</h2>
