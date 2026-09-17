@@ -75,10 +75,18 @@ will not appear in the final SRFI.</p>
 <h2 id="specification">Specification</h2>
 
 <p>
-  There are only four exported procedures in this SRFI.
+  The whole SRFI is split into sub-libraries, one predicate per library.
+  This is because not all implementations support first-class objects these predicates check.
+  Portable code relying on this SRFI can thus do:
 </p>
 
-<h2 id="spec--environment">(srfi 282) procedure (environment? object) → boolean</h2>
+<pre>
+(cond-expand
+ ((library (srfi 282 environment)) #| Use environment? here|#)
+ ((library (srfi 282 parameter))   #| Use parameter? here|#))
+</pre>
+
+<h2 id="spec--environment">(srfi 282 environment) procedure (environment? object) → boolean</h2>
 
 <p>
   Returns true whenever given an environment <var>object</var>, as returned by
@@ -93,7 +101,7 @@ will not appear in the final SRFI.</p>
   They deserve a predicate.
 </p>
 
-<h2 id="spec--parameter">(srfi 282) procedure (parameter? object) → boolean</h2>
+<h2 id="spec--parameter">(srfi 282 parameter) procedure (parameter? object) → boolean</h2>
 
 <p>
   Returns true whenever <var>object</var> is a parameter object, and
@@ -106,7 +114,7 @@ will not appear in the final SRFI.</p>
   Thus the need for a predicate.
 </p>
 
-<h2 id="spec--continuation">(srfi 282) procedure (continuation? object) → boolean</h2>
+<h2 id="spec--continuation">(srfi 282 continuation) procedure (continuation? object) → boolean</h2>
 
 <p>
   Returns true whenever <var>object</var> is a continuation (such as created by <code>call/cc</code>,)
