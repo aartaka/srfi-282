@@ -95,12 +95,6 @@ will not appear in the final SRFI.</p>
   like</a>, and false otherwise.
 </p>
 
-<p>
-  Lack of a predicate for environments is an interesting omission in the standard.
-  These are first-class entities of a distinct type.
-  They deserve a predicate.
-</p>
-
 <h2 id="spec--parameter">(srfi 282 parameter) procedure (parameter? object) → boolean</h2>
 
 <p>
@@ -108,23 +102,11 @@ will not appear in the final SRFI.</p>
   false otherwise.
 </p>
 
-<p>
-  While parameters are almost invariably represented as procedures,
-  they might happen to be distinct callable objects.
-  Thus the need for a predicate.
-</p>
-
 <h2 id="spec--continuation">(srfi 282 continuation) procedure (continuation? object) → boolean</h2>
 
 <p>
   Returns true whenever <var>object</var> is a continuation (such as created by <code>call/cc</code>,)
   false otherwise.
-</p>
-
-<p>
-  While parameters are almost invariably represented as procedures,
-  they might happen to be distinct callable objects.
-  Thus the need for a predicate.
 </p>
 
 <h2 id="spec--no">Not Included</h2>
