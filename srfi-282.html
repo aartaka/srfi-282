@@ -6,12 +6,12 @@ SPDX-License-Identifier: MIT
 -->
   <head>
     <meta charset="utf-8">
-    <title>SRFI 282: Missing R7RS (Type) Predicates</title>
+    <title>SRFI 282: Additional R7RS (Type) Predicates</title>
     <link href="/favicon.png" rel="icon" sizes="192x192" type="image/png">
     <link rel="stylesheet" href="https://srfi.schemers.org/srfi.css" type="text/css">
     <meta name="viewport" content="width=device-width"></head>
   <body>
-    <h1><a href="https://srfi.schemers.org/"><img class="srfi-logo" src="https://srfi.schemers.org/srfi-logo.svg" alt="SRFI surfboard logo" /></a>282: Missing R7RS (Type) Predicates</h1>
+    <h1><a href="https://srfi.schemers.org/"><img class="srfi-logo" src="https://srfi.schemers.org/srfi-logo.svg" alt="SRFI surfboard logo" /></a>282: Additional R7RS (Type) Predicates</h1>
 
 <p>by Artyom Bologov</p>
 
@@ -59,17 +59,17 @@ will not appear in the final SRFI.</p>
 <p>
   The discussion of types in Scheme is often predicate-reliant,
   including in the <a href="https://standards.scheme.org/r7rs-html5/index.html#3.2">in R<sup>7</sup> “Disjointness of types” section</a>.
-  Types are reliably represented by these predicates.
+  Types are reliably represented by their respective predicates.
   (This is, in part, why the <a href="https://srfi.schemers.org/srfi-253/srfi-253.html">author’s own SRFIs</a> rely on predicates for typing.)
-  The predicate set essentially defines what types of object semantically “exist.”
-  If there’s no predicate, there is no (programmatically-reachable) type.
 </p>
 
 <p>
-  Thus more predicates are needed than R<sup>7</sup>RS Small provides.
-  There are types that do actually exist, but have no predicates proving their existence.
+  But more predicates are needed than R<sup>7</sup>RS Small provides.
+  There are types that do actually exist (i.e. are programmatically reachable,)
+  but have no predicates referring to their existence.
   Some implementations provide these predicates, but there’s no portable way to use them.
-  Thus this SRFI: to have a common ground set of predicates for entities that otherwise exist in Scheme.
+  Thus this SRFI: to have a common ground set of predicates for entities that otherwise exist in most Schemes.
+  And implicitly exist in the standard too.
 </p>
 
 <h2 id="specification">Specification</h2>
@@ -91,8 +91,8 @@ will not appear in the final SRFI.</p>
 <p>
   Returns true whenever given an environment <var>object</var>, as returned by
   <a href="https://standards.scheme.org/r7rs-html5/index.html#environment">environment</a>
-  and <a href="https://standards.scheme.org/r7rs-html5/index.html#6.12">the
-  like</a>, and false otherwise.
+  and <a href="https://standards.scheme.org/r7rs-html5/index.html#6.12">the like</a>,
+  and false otherwise.
 </p>
 
 <h2 id="spec--parameter">(srfi 282 parameter) procedure (parameter? object) → boolean</h2>
@@ -151,6 +151,10 @@ will not appear in the final SRFI.</p>
   Thanks to Marc Nieper-Wißkirchen, Peter Bex, and Peter McGoron for a discussion on some of the earlier / removed predicates
   (<code>library?</code>, <code>syntax-transformer?</code>)
   and for suggestion of <code>continuation?</code>.
+</p>
+
+<p>
+  Thanks to Wolfgang Corcoran-Mathe for a correct assessment of the language and tone of the SRFI initially being overboard.
 </p>
 
 <p>
