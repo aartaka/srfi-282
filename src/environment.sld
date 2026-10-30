@@ -23,4 +23,7 @@
                (module? environment?))))
     (kawa
      (define (environment? obj)
-       (instance? obj gnu.mapping.Environment)))))
+       (instance? obj gnu.mapping.Environment)))
+    (teenyscheme
+     (import
+       (only (init) environment?)))))

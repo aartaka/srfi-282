@@ -23,4 +23,7 @@
        (only (gauche parameter) parameter?)))
     (gambit
      (begin
-       (define parameter ##parameter?)))))
+       (define parameter ##parameter?)))
+    (teenyscheme
+     (import
+       (only (init) parameter?)))))
