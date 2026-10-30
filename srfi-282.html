@@ -119,10 +119,17 @@ will not appear in the final SRFI.</p>
   but these were removed as too meta and impossible to obtain in standard code.
 </p>
 
+<p>
+  <code>continuation?</code> was also included in one of the drafts, based on incorrect reading of the standard.
+  But <code>call/cc</code> provides a procedure wrapping the continuation, and not the continuation itself.
+  It is impossible to get raw continuation in portable code, so there’s no need for a predicate.
+</p>
+
 <h2 id="implementation">Implementation</h2>
 
 <p>
-  Sample implementation not provided yet.
+  Sample implementation, doubling as a survey of implementations supporting these predicates already,
+  can be found in <a href="https://github.com/scheme-requests-for-implementation/srfi-282">this SRFI repository</a>.
 </p>
 
 <p>
